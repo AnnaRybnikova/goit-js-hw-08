@@ -85,3 +85,14 @@ const imagesMarkup = imagesArr =>
 
 console.log(imagesMarkup(images));
 galleryEl.insertAdjacentHTML(`beforeend`, imagesMarkup(images));
+
+galleryEl.addEventListener("click", handleClick);
+
+function handleClick(event) {
+    event.preventDefault()
+    if (event.target.nodeName !== "IMG") {
+        return;
+    }
+
+    console.log(event.target.dataset.source);
+}
